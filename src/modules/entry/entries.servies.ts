@@ -1,5 +1,5 @@
 import { da } from "zod/v4/locales";
-import { Entry } from "../../generated/prisma/client";
+import { Entry } from '@prisma/client';
 import { EntryCreate, EntryUpdate } from "./dto/entries.dto";
 import { EntryRepository } from "./enttries.repository";
 
