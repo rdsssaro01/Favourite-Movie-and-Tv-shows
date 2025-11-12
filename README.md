@@ -103,23 +103,91 @@ Server will start on: `http://localhost:5000`
 
 ### ➕ Add New Entry
 
-`POST /api/entries`
+**POST** `/api/entries`
 
-### 📃 List Entries
+**Request Body:**
 
-`GET /api/entries?page=1&limit=10`
+```json
+{
+  "title": "Inception",
+  "type": "Movie",
+  "director": "Christopher Nolan",
+  "budget": 160000000,
+  "location": "Los Angeles",
+  "duration": 148,
+  "yearTime": "2010-07-16"
+}
+```
+
+**Live Demo Example:**
+`POST https://favorite-movies-api.onrender.com/api/entries`
+
+---
+
+### 📃 List Entries (Pagination)
+
+**GET** `/api/entries?page=1&limit=5`
+
+**Live Demo Example:**
+`GET https://favorite-movies-api.onrender.com/api/entries?page=1&limit=5`
+
+**Response Example:**
+
+```json
+{
+  "page": 1,
+  "limit": 5,
+  "total": 2,
+  "data": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "type": "Movie",
+      "director": "Christopher Nolan",
+      "budget": 160000000,
+      "location": "Los Angeles",
+      "duration": 148,
+      "yearTime": "2010-07-16T00:00:00.000Z"
+    }
+  ]
+}
+```
+
+---
 
 ### ✏️ Edit Entry
 
-`PUT /api/entries/:id`
+**PUT** `/api/entries/:id`
+
+**Request Body:**
+
+```json
+{
+  "title": "Inception Updated",
+  "duration": 150
+}
+```
+
+**Live Demo Example:**
+`PUT https://favorite-movies-api.onrender.com/api/entries/1`
+
+---
 
 ### ❌ Delete Entry
 
-`DELETE /api/entries/:id`
+**DELETE** `/api/entries/:id`
+
+**Live Demo Example:**
+`DELETE https://favorite-movies-api.onrender.com/api/entries/1`
+
+---
 
 ### 🔍 Search by Title
 
-`GET /api/entries/search?title=Inception`
+**GET** `/api/entries/search?title=Inception`
+
+**Live Demo Example:**
+`GET https://favorite-movies-api.onrender.com/api/entries/search?title=Inception`
 
 ---
 
@@ -192,9 +260,13 @@ Commit all files and push to a GitHub repository.
 
 Render will automatically build and deploy your app.
 
-### 5️⃣ View Logs
+### 5️⃣ Live API Demo (replace if deployed)
 
-You can monitor deployment logs directly in Render’s dashboard.
+```
+https://favorite-movies-api.onrender.com
+```
+
+Use the above base URL for all endpoint examples.
 
 ---
 
@@ -205,8 +277,6 @@ You can monitor deployment logs directly in Render’s dashboard.
 * Use `npm run build` before deployment.
 
 ---
-
-##LiveDemo --  https://favourite-movie-and-tv-shows.onrender.com
 
 ## 👨‍💻 Author
 
