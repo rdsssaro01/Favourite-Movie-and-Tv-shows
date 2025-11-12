@@ -1,10 +1,10 @@
-
 import { EntryCreate, EntryUpdate } from "./dto/entries.dto";
 import { EntryRepository } from "./enttries.repository";
+import { Entry } from "../../generated/prisma/client";
 
 export const EntryService = {
     
-createEntry: async (data: any) => {
+createEntry: async (data: Entry) => {
 
     const existing= await EntryRepository.findById(data.title!);
    if (existing) {
