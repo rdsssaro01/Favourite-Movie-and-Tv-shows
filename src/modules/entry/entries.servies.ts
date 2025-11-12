@@ -1,11 +1,10 @@
-import { da } from "zod/v4/locales";
-import { Entry } from '@prisma/client';
+
 import { EntryCreate, EntryUpdate } from "./dto/entries.dto";
 import { EntryRepository } from "./enttries.repository";
 
 export const EntryService = {
     
-createEntry: async (data: Entry) => {
+createEntry: async (data: any) => {
 
     const existing= await EntryRepository.findById(data.title!);
    if (existing) {
