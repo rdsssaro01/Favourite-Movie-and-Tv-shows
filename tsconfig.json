@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "typeRoots": ["./src/types","./node_modules/@types"],
     "noImplicitAny": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noUnusedLocals": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
