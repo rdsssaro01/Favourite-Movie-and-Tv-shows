@@ -1,134 +1,194 @@
-Favorite Movies & TV Shows API
-A RESTful backend built with Node.js, TypeScript, Prisma ORM, and PostgreSQL. This API allows users to manage a list of their favorite movies and TV shows with full CRUD functionality and proper data validation.
+# 🎬 Favorite Movies & TV Shows API
 
-🚀 Quick Start
-1. Clone the Repository
+A simple RESTful backend service that allows users to manage their favorite movies and TV shows.  
+Built using **Node.js**, **TypeScript**, **Express**, **Prisma**, and **PostgreSQL**.
+
+---
+
+## 🧩 Problem Statement
+
+Build a RESTful API service that supports:
+
+- Adding new favorite movies or TV shows.
+- Viewing entries with pagination.
+- Editing and deleting entries.
+- Optional: Searching entries by title.
+
+Each entry includes the following fields:
+> `title`, `type` (Movie/TV Show), `director`, `budget`, `location`, `duration`, `yearTime`.
+
+---
+
+## 🚀 Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| Backend Framework | Node.js + Express |
+| Language | TypeScript |
+| ORM | Prisma |
+| Database | PostgreSQL |
+| Validation | Zod |
+| Dev Tooling | Nodemon, ts-node-dev |
+
+---
+
+## 🗂️ Folder Structure
+
+📦 favorite-movies-api
+├── 📁 src
+│ ├── 📁 config # Database connection & environment setup
+│ ├── 📁 controllers # Request handling logic
+│ ├── 📁 routes # Express route definitions
+│ ├── 📁 services # Business logic layer
+│ ├── 📁 prisma # Prisma schema & migrations
+│ ├── 📁 middlewares # Validation, error handling, etc.
+│ ├── 📁 utils # Helpers (pagination, constants, etc.)
+│ ├── app.ts # Express app initialization
+│ └── server.ts # Server bootstrap file
+├── .env # Environment variables
+├── package.json
+├── tsconfig.json
+├── prisma/schema.prisma
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/<your-username>/favorite-movies-api.git
+cd favorite-movies-api
+2️⃣ Install Dependencies
 bash
-git clone <your-repo-url>
-cd <your-repo-folder>
-2. Install Dependencies
-bash
+Copy code
 npm install
-3. Configure Environment Variables
-Copy the example environment file and configure your variables:
+3️⃣ Configure Environment
+Create a .env file in the root directory:
 
+env
+Copy code
+DATABASE_URL="postgresql://<user>:<password>@localhost:5432/moviesdb?schema=public"
+PORT=5000
+4️⃣ Initialize Prisma
 bash
-cp .env.example .env
-Edit .env and set your DATABASE_URL.
-Example:
-
-text
-DATABASE_URL="postgresql://user:password@localhost:5432/yourdb?schema=public"
-If deploying on Render, Render will provide this variable.
-
-4. Initialize TypeScript
-If not pre-configured:
-
+Copy code
+npx prisma generate
+npx prisma migrate dev --name init
+5️⃣ Seed Database (Optional)
 bash
-npx tsc --init
-5. Initialize Prisma
+Copy code
+npx prisma db seed
+6️⃣ Run Server
 bash
-npx prisma init
-Edit prisma/schema.prisma to define your models. Example:
+Copy code
+npm run dev
+Server will start on:
+👉 http://localhost:5000
 
-text
+🧠 API Endpoints
+➕ Add New Entry
+POST /api/entries
+
+Body:
+
+json
+Copy code
+{
+  "title": "Inception",
+  "type": "Movie",
+  "director": "Christopher Nolan",
+  "budget": 160000000,
+  "location": "Los Angeles",
+  "duration": 148,
+  "yearTime": "2010-07-16"
+}
+📃 List Entries (with Pagination)
+GET /api/entries?page=1&limit=10
+
+Response Example:
+
+json
+Copy code
+{
+  "page": 1,
+  "limit": 10,
+  "total": 4,
+  "data": [
+    { "id": 1, "title": "Inception", "type": "Movie", ... }
+  ]
+}
+✏️ Edit Entry
+PUT /api/entries/:id
+
+Body:
+
+json
+Copy code
+{
+  "title": "Inception Updated",
+  "duration": 150
+}
+❌ Delete Entry
+DELETE /api/entries/:id
+
+🔍 (Bonus) Search by Title
+GET /api/entries/search?title=Inception
+
+🧾 Validation Rules (Zod)
+All fields required on creation.
+
+type must be one of: Movie, TV Show.
+
+budget, duration must be positive numbers.
+
+yearTime must be a valid date.
+
+📦 Sample Prisma Schema
+prisma
+Copy code
 model Entry {
   id        Int      @id @default(autoincrement())
   title     String
-  type      String   // "Movie" or "TV Show"
+  type      String
   director  String
   budget    Int
   location  String
   duration  Int
-  year      Int
+  yearTime  DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
-6. Migrate & Seed Database
-Run database migration:
+🧰 Scripts
+Command	Description
+npm run dev	Start development server
+npm run build	Compile TypeScript
+npm start	Run compiled server
+npx prisma studio	Open Prisma DB viewer
 
-bash
-npx prisma migrate dev --name init
-To seed (if a script exists):
+🧪 Postman Collection
+You can import the collection from this link:
+👉 Postman Collection JSON
 
-bash
-npx prisma db seed
-7. Start the Server
-Development:
+🌐 Live Demo
+👉 Live Demo Link
+(Optional if deployed to Render, Railway, or Vercel)
 
-bash
-npm run dev
-Production:
+🧱 Evaluation Criteria
+✅ Code Quality: Clear, maintainable TypeScript structure
 
-bash
-npm run build
-npm start
-📦 Scripts
-Common scripts (package.json):
+✅ Functionality: All CRUD + pagination implemented
 
-npm run dev: Run in development with reload
+✅ Validation: Proper input validation using Zod
 
-npm run build: Compile TypeScript
+✅ Best Practices: Layered architecture, Prisma ORM usage
 
-npm start: Start compiled server
+✅ Documentation: This README and API docs are clear
 
-prisma:generate: Generate Prisma client
-
-prisma:migrate: Run migrations
-
-🗃️ Database Schema & Migrations
-Models defined in prisma/schema.prisma
-
-Migration scripts auto-generated in prisma/migrations/
-
-Update schema → run npx prisma migrate dev or for production: npx prisma migrate deploy
-
-🧩 API Endpoints
-Endpoint	Method	Description
-/api/entries	POST	Add a new entry
-/api/entries	GET	List entries (pagination)
-/api/entries/:id	PUT	Edit entry
-/api/entries/:id	DELETE	Delete entry
-✅ Validation
-All endpoints use schema validation (e.g., Zod/Yup/express-validator)
-
-Required fields: title, type, director, budget, location, duration, year
-
-🌐 Live Deployment: Render
-1. Push to GitHub
-bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-2. Create PostgreSQL Database on Render
-Go to your Render dashboard → "New" → "PostgreSQL"
-
-Note the DATABASE_URL connection string
-
-3. Create a Web Service on Render
-"New" → "Web Service"
-
-Connect your GitHub repo
-
-Set environment variable: DATABASE_URL as given by Render
-
-Build Command: npm install && npm run build && npx prisma generate
-
-Start Command: npm start
-
-4. Add Pre-Deploy Migration Command
-In Render's settings:
-"Pre-Deploy Command" → npx prisma migrate deploy
-
-5. Deploy
-Render will build, run migrations, and start your service.
-
-On completion, your API will be live at the given URL.
-
-📝 Sample Data
-You should seed the DB with at least 2 movies and 2 TV shows. Example seed script is in prisma/seed.ts.
-
-📖 Further Reading
-Prisma TypeScript Quickstart
-
-Node.js + Prisma + PostgreSQL Guide
-
-Render Deployment Guide
+👨‍💻 Author
+Your Name
+GitHub • LinkedIn
