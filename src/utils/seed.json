@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Inception",
+    "type": "MOVIE",
+    "director": "Christopher Nolan",
+    "budget": 160,
+    "location": "Los Angeles",
+    "duration": 148,
+    "year": 2010
+  },
+  {
+    "title": "Avatar",
+    "type": "MOVIE",
+    "director": "James Cameron",
+    "budget": 237,
+    "location": "New Zealand",
+    "duration": 162,
+    "year": 2009
+  },
+  {
+    "title": "The Dark Knight",
+    "type": "MOVIE",
+    "director": "Christopher Nolan",
+    "budget": 185,
+    "location": "Chicago",
+    "duration": 152,
+    "year": 2008
+  },
+  {
+    "title": "Interstellar",
+    "type": "MOVIE",
+    "director": "Christopher Nolan",
+    "budget": 165,
+    "location": "Iceland",
+    "duration": 169,
+    "year": 2014
+  },
+  {
+    "title": "Titanic",
+    "type": "MOVIE",
+    "director": "James Cameron",
+    "budget": 200,
+    "location": "Atlantic Ocean",
+    "duration": 195,
+    "year": 1997
+  },
+  {
+    "title": "KGF",
+    "type": "MOVIE",
+    "director": "Prashanth Neel",
+    "budget": 80,
+    "location": "Bangalore",
+    "duration": 156,
+    "year": 2018
+  },
+  {
+    "title": "Jailer",
+    "type": "MOVIE",
+    "director": "Nelson Dilipkumar",
+    "budget": 200,
+    "location": "Chennai",
+    "duration": 168,
+    "year": 2023
+  },
+  {
+    "title": "Leo",
+    "type": "MOVIE",
+    "director": "Lokesh Kanagaraj",
+    "budget": 250,
+    "location": "Kashmir",
+    "duration": 164,
+    "year": 2023
+  },
+  {
+    "title": "Vikram",
+    "type": "MOVIE",
+    "director": "Lokesh Kanagaraj",
+    "budget": 150,
+    "location": "Chennai",
+    "duration": 175,
+    "year": 2022
+  },
+  {
+    "title": "The Matrix",
+    "type": "MOVIE",
+    "director": "The Wachowskis",
+    "budget": 63,
+    "location": "Sydney",
+    "duration": 136,
+    "year": 1999
+  },
+  {
+    "title": "Breaking Bad",
+    "type": "TV_SHOW",
+    "director": "Vince Gilligan",
+    "budget": 3,
+    "location": "Albuquerque",
+    "duration": 62,
+    "year": 2008
+  },
+  {
+    "title": "Game of Thrones",
+    "type": "TV_SHOW",
+    "director": "David Benioff & D.B. Weiss",
+    "budget": 15,
+    "location": "Northern Ireland",
+    "duration": 73,
+    "year": 2011
+  },
+  {
+    "title": "The Office",
+    "type": "TV_SHOW",
+    "director": "Greg Daniels",
+    "budget": 2,
+    "location": "Scranton",
+    "duration": 201,
+    "year": 2005
+  },
+  {
+    "title": "Stranger Things",
+    "type": "TV_SHOW",
+    "director": "The Duffer Brothers",
+    "budget": 12,
+    "location": "Atlanta",
+    "duration": 34,
+    "year": 2016
+  },
+  {
+    "title": "Friends",
+    "type": "TV_SHOW",
+    "director": "David Crane & Marta Kauffman",
+    "budget": 10,
+    "location": "New York",
+    "duration": 236,
+    "year": 1994
+  },
+  {
+    "title": "Money Heist",
+    "type": "TV_SHOW",
+    "director": "Álex Pina",
+    "budget": 10,
+    "location": "Madrid",
+    "duration": 41,
+    "year": 2017
+  },
+  {
+    "title": "The Mandalorian",
+    "type": "TV_SHOW",
+    "director": "Jon Favreau",
+    "budget": 15,
+    "location": "California",
+    "duration": 24,
+    "year": 2019
+  },
+  {
+    "title": "Peaky Blinders",
+    "type": "TV_SHOW",
+    "director": "Steven Knight",
+    "budget": 10,
+    "location": "Birmingham",
+    "duration": 36,
+    "year": 2013
+  },
+  {
+    "title": "The Boys",
+    "type": "TV_SHOW",
+    "director": "Eric Kripke",
+    "budget": 12,
+    "location": "Toronto",
+    "duration": 24,
+    "year": 2019
+  },
+  {
+    "title": "Loki",
+    "type": "TV_SHOW",
+    "director": "Kate Herron",
+    "budget": 25,
+    "location": "Atlanta",
+    "duration": 12,
+    "year": 2021
+  }
+]
